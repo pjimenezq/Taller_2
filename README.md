@@ -151,6 +151,19 @@ Escriba un programa que pida 5 números reales y calcule las siguientes operacio
 * La raíz cúbica del menor número
 
 **Explicación de la solución**
+1.	Crear las funciones
+
+* El promedio: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _promedio_. La función toma cada uno de los elementos de la lista y los suma entre sí. Luego, divide la suma entre el tamaño de la lista. Después de que se ejecuta la anterior instrucción, la función retorna el resultado (que es el promedio)
+* La mediana: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _mediana_.  En la función se utiliza sort() para ordenar los elementos de la lista. Posteriormente, se halla el elemento que se encuentra en la posición de la mitad de la lista, es decir el elemento con índice 2 de la lista. La función retorna el elemento que se encuentra en la posición del medio.
+* El promedio multiplicativo: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _promedioMultiplicativo_. La función toma cada uno de los elementos de la lista y los multiplica entre sí. Luego, eleva la multiplicación total a 1 entre el tamaño de la lista. Después de que se ejecuta la anterior instrucción, la función retorna el resultado (que es el promedio multiplicativo)
+* Orden ascendente: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _ordenAscendente_.  En la función se utiliza sort() para ordenar los elementos de la lista de menor a mayor. La función retorna la lista ordenada.
+* Orden descendente: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _ordenDescendente_.  En la función se utiliza sort(reverse=True) para ordenar los elementos de la lista de mayor a menor. La función retorna la lista ordenada.
+* La potencia del mayor número elevado al menor número: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _potencia_.  En la función se utiliza sort() para ordenar los elementos de la lista de menor a mayor. Posteriormente, se eleva el elemento que se encuentra en la última posición al elemento de la primera posición (el elemento con índice -1 elevado al elemento con índice 0). La función retorna el cálculo de la potencia.
+* La raíz cúbica del menor número: Se crea una función que tiene como argumento una lista. En este caso la función se nombró _raiz_.  En la función se utiliza sort() para ordenar los elementos de la lista de menor a mayor. Posteriormente, se eleva el elemento que se encuentra en la primera posición (el elemento con índice cero) a un tercio. La función retorna la raíz cúbica del menor número.
+
+2.	Usar las funciones
+
+Se define la _función main_, se crea una lista vacía y con la función input() y .append() se agregan los cinco números reales ingresados por el usuario a la lista. Posteriormente, se llaman las funciones creadas anteriormente, para aplicarlas en la lista creada y se imprimen los resultados de las operaciones realizadas con los cinco elementos de la lista.
 
 
 
