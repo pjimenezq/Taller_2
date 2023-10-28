@@ -105,10 +105,33 @@ Desarrollar un programa que dadas dos listas determine que elementos tiene la pr
 
 **Explicación de la solución**
 
+1. Crear función
+
+Para solucionar este punto se crea una función que tiene como argumentos dos listas diferentes. En este caso la función se nombró diferenciaLista.
+La función compara cada uno de los elementos de la primera lista con los elementos de la segunda lista y cuando son iguales, se elimina ese elemento de la primera lista. Después de que se ejectuta la anterior instrucción, la función retorna la primera lista (ahora que en la primera lista, ya no están los elementos que también tiene la segunda lista).
+
+2. Usar la función
+
+Se define la función main, se declaran las dos listas con los elementos que se deseen, se llama la función creada anteriormente (llamada diferenciaLista) y se imprime el resultado. Es decir que el programa va a imprimir la lista con los elementos que únicamente tiene la primera lista.
 
 
 **Código**
 ```
+def diferenciaLista(primeraLista,segundaLista):#Declarando función diferenciaLista, la cual determina los elementos que tiene una lista que no tiene otra lista
+    for x in segundaLista:#Para cada elemento en la segunda lista
+        for y in primeraLista:#Para cada elemento en la primera lista
+            if x==y:#Si el elemento de la segunda lista es igual al elemento de la primera lista
+                primeraLista.remove(x)#Eliminar el elemento en común de la primera lista
+    return primeraLista#Retornar la primera lista (donde sus elementos son los que la segunda lista no tiene)
+
+
+if __name__=="__main__":#Función principal
+    #Declarando las dos listas y sus elementos
+    listaUno=[1, 'Hola', -12.3 ,True]
+    listaDos=[11, -12.3, 'Hola', False]
+    elementosPrimera=diferenciaLista(listaUno,listaDos)#Llamando la función diferenciaLista
+    print("Los elementos que tiene la primer lista que no tiene la segunda lista son "+str(elementosPrimera))#Imprimiendo la lista con los elementos que solo tiene la primera lista
+
 ```
 ## Noveno punto
 **Instrucción**
