@@ -247,7 +247,7 @@ Desarrollar un programa que determine si en una lista existen o no elementos rep
 
 
 **Código**
-```
+
 ```
 ## Séptimo punto
 **Instrucción**
@@ -255,11 +255,47 @@ Desarrollar un programa que determine si en una lista existen o no elementos rep
 Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
 
 **Explicación de la solución**
+el código proporcionado consta de una función y un bucle que verifica si una lista de cadenas contiene al menos una cadena que posee dos o más vocales. Aquí está una explicación más detallada:
 
+Función tiene_vocales(cadena):
+
+Toma una cadena como entrada y verifica si tiene al menos dos vocales.
+Itera a través de cada carácter de la cadena y cuenta cuántas vocales hay.
+Si encuentra al menos dos vocales, devuelve True, de lo contrario, devuelve False.
+Bucle principal:
+
+Define una lista de cadenas llamada lista.
+Recorre cada cadena en la lista.
+Llama a la función tiene_vocales(cadena) para verificar si la cadena tiene al menos dos vocales.
+Si encuentra una cadena que cumple con esa condición, la imprime y detiene el bucle.
+Si ninguna cadena cumple con la condición, imprime 'No existe'.
 
 
 **Código**
-```
+```def tiene_vocales(cadena):
+    """Función que devuelve True si una cadena tiene dos o más vocales."""
+    vocales = "aeiouAEIOU"  # Definimos una cadena con todas las vocales
+    contador = 0  # Inicializamos un contador de vocales a cero
+    for letra in cadena:  # Recorremos cada letra de la cadena
+        if letra in vocales:  # Si la letra es una vocal
+            contador += 1  # Incrementamos el contador de vocales
+            if contador >= 2:  # Si ya hemos encontrado dos vocales
+                return True  # Devolvemos True
+    return False  # Si no encontramos dos vocales, devolvemos False
+
+# Definimos una lista de cadenas
+lista = ["j73a8r", "David", "planeta", "Python", ]  
+
+encontrado = False  # Inicializamos una variable que indica si hemos encontrado la cadena buscada
+
+for cadena in lista:  # Recorremos cada cadena de la lista
+    if tiene_vocales(cadena):  # Si la cadena tiene dos o más vocales
+        print("La cadena que cumple con la condición es: ", cadena)  # Mostramos la cadena por pantalla
+        encontrado = True  # Indicamos que hemos encontrado la cadena buscada
+        break  # Salimos del ciclo
+
+if not encontrado:  # Si no hemos encontrado la cadena buscada
+    print("No existe")  # Mostramos 'No existe' por pantalla
 ```
 ## Octavo punto
 **Instrucción**
