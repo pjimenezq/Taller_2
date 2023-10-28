@@ -56,12 +56,175 @@ Desarrollar un programa que permita ingresar dos números enteros y determinar s
 Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. nota: use math para traer la función coseno y mostrar la diferencia entre el valor real y la aproximación. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
 
 **Explicación de la solución**
-
-
+* Primero lo que se hizo fue importar la librería math y de la librería math importar la función coseno y el factorial
+* Después se creó la aproximación de la función coseno, en la que se iban a introducir los valores de la base y los valores del exponente. Creamos la variable 'funcCos' la cual igualamos a 0, y a esta variable le sumamos la ecuación de la función, la cual es la que está presentada en el código, segun la serie de terminos de Taylor.
+* Mencionamos la función main; en la cual le pedimos al usuario que ingrese el número de la base, el exponente será igual a 1, llamamos a la 'AproxFuncCos' y usamos la función coseno real.
+* Como el exponente es igual a 1, entonces tenemos que crear un ciclo en el que el valor del exponente aumente o disminuya conforme a la necesidad que presenta la base, para ello mientras que la aproximación sea mayor a un margen de error que se determine entonces se le pedirá a 'n' que aumente su valor más 1 hasta que el margen de error se menor al valor determinado.
+* Por último imprimimos comparando el valor real de la función coseno con el aproximado y la resta entre el valor real con la aproximación.
 
 **Código**
+
+Para este caso el balance de error tenía que ser menos de 10
+
+```python
+#Importamos math y de math traemos la función coseno y al factorial
+from math import cos, factorial
+#Creamos una función que nos ayude a llegar a la aproximación de la función coseno
+def aproxFuncCos (x:float, n:int) -> float:
+    funcCos: float = 0
+    for i in range(0, n+1):
+        funcCos += ((-1)**i)*(x**((2*i))/factorial(2*i)) #Esta es la ecuación de la función coseno para hallarla
+    return funcCos
+
+if __name__=="__main__":
+    #Le pedimos al usuario que ingrese un valor para la base
+    x = float(input("Ingrese un valor para la base 'x': "))
+    # El exponente tiene valor de 1, porque conforme a la base irá cambiando el exponente
+    n : int = 1
+    aprox = aproxFuncCos(x, n) #Llamamos a la aproximación de la función coseno
+    real = cos(x) #Llamamos a la función coseno real después de importar la librería math
+
+    #Para que el exponente sea el correcto creamos un while con la siguiente operación, así miramos la aproximación
+    while abs((real - aprox)/real*100)>10:
+        aprox: float = aproxFuncCos(x, n)
+        #Actualizamos cada vez el exponente conforme al resultado que obtenemos para llegar más fácil a la aproximación
+        n += 1
+        # El while se termina cuando el valor que obtenemos es menor al error posible que establecemos en este caso es 10, pero se irá disminuyendo para comprobar el comportamiento de los exponentes
+    print(n, " es el valor del exponente para que funcione la aproximación")
+    
+    #Restamos el valor real con el exponente
+    difAprox = real - aprox
+
+    #Imprimimos
+    print("La aproximación de la función seno es", aprox)
+    print("La función seno real es", real)
+    print("La diferencia de la función real y la aproximación es", difAprox)
 ```
+Cuando el balance de error es menor a 10 los exponentes que toma el ejercicio normalmente toman todos los naturales empezando desde 4, cuando la base es 2 o mayor. Haciendo saltos en el exponente en muy pocas ocasiones, esto saltos eran de dos números. Es decir, en alguna ocasión podía dar saltos de 4 a 6 por ejemplo. Siendo un ejemplo, Se tomó en cuenta cuando la base es de 2 hasta 20.
+
+---
+
+Siguiente caso, el balance de error debe ser menor a 1
+
+```python
+#Importamos math y de math traemos la función coseno y al factorial
+from math import cos, factorial
+#Creamos una función que nos ayude a llegar a la aproximación de la función coseno
+def aproxFuncCos (x:float, n:int) -> float:
+    funcCos: float = 0
+    for i in range(0, n+1):
+        funcCos += ((-1)**i)*(x**((2*i))/factorial(2*i)) #Esta es la ecuación de la función coseno para hallarla
+    return funcCos
+
+if __name__=="__main__":
+    #Le pedimos al usuario que ingrese un valor para la base
+    x = float(input("Ingrese un valor para la base 'x': "))
+    # El exponente tiene valor de 1, porque conforme a la base irá cambiando el exponente
+    n : int = 1
+    aprox = aproxFuncCos(x, n) #Llamamos a la aproximación de la función coseno
+    real = cos(x) #Llamamos a la función coseno real después de importar la librería math
+
+    #Para que el exponente sea el correcto creamos un while con la siguiente operación, así miramos la aproximación
+    while abs((real - aprox)/real*100)>1:
+        aprox: float = aproxFuncCos(x, n)
+        #Actualizamos cada vez el exponente conforme al resultado que obtenemos para llegar más fácil a la aproximación
+        n += 1
+        # El while se termina cuando el valor que obtenemos es menor al error posible que establecemos en este caso es 1, pero se irá disminuyendo para comprobar el comportamiento de los exponentes
+    print(n, " es el valor del exponente para que funcione la aproximación")
+    
+    #Restamos el valor real con el exponente
+    difAprox = real - aprox
+
+    #Imprimimos
+    print("La aproximación de la función seno es", aprox)
+    print("La función seno real es", real)
+    print("La diferencia de la función real y la aproximación es", difAprox)
 ```
+
+En este caso podemos apreciar que el comportamiento de los exponentes cambia, ya es más seguido que se salten número naturales. Pasa un caso interesante cuando elegimos que la base sea 11, y cuando elegimos que la base sea 12. Nos damos cuenta que envés de que el exponente siga creciendo, en este caso disminuye, después de esto sigue en crecimiento. Seguramente esto pase por el comportamiento de la función coseno al ser una función periódica en el cual el valor más alto que puede tomar en el eje y es 1. Tener en cuenta que x tomó los valores de 1 a 20 en esta ocasión.
+
+---
+
+Siguiente caso, el balance de error debe ser menor a 0.1
+
+```python
+#Importamos math y de math traemos la función coseno y al factorial
+from math import cos, factorial
+#Creamos una función que nos ayude a llegar a la aproximación de la función coseno
+def aproxFuncCos (x:float, n:int) -> float:
+    funcCos: float = 0
+    for i in range(0, n+1):
+        funcCos += ((-1)**i)*(x**((2*i))/factorial(2*i)) #Esta es la ecuación de la función coseno para hallarla
+    return funcCos
+
+if __name__=="__main__":
+    #Le pedimos al usuario que ingrese un valor para la base
+    x = float(input("Ingrese un valor para la base 'x': "))
+    # El exponente tiene valor de 1, porque conforme a la base irá cambiando el exponente
+    n : int = 1
+    aprox = aproxFuncCos(x, n) #Llamamos a la aproximación de la función coseno
+    real = cos(x) #Llamamos a la función coseno real después de importar la librería math
+
+    #Para que el exponente sea el correcto creamos un while con la siguiente operación, así miramos la aproximación
+    while abs((real - aprox)/real*100)>0.1:
+        aprox: float = aproxFuncCos(x, n)
+        #Actualizamos cada vez el exponente conforme al resultado que obtenemos para llegar más fácil a la aproximación
+        n += 1
+        # El while se termina cuando el valor que obtenemos es menor al error posible que establecemos en este caso es 0.1, pero se irá disminuyendo para comprobar el comportamiento de los exponentes
+    print(n, " es el valor del exponente para que funcione la aproximación")
+    
+    #Restamos el valor real con el exponente
+    difAprox = real - aprox
+
+    #Imprimimos
+    print("La aproximación de la función seno es", aprox)
+    print("La función seno real es", real)
+    print("La diferencia de la función real y la aproximación es", difAprox)
+```
+
+Se empiezan a tomar saltos más amplios en los número naturales que puede tomar los exponentes, sabiendo que es necesario para que se cumpla la condición que se está poniendo. Hay saltos en ocasiones de cuatro números, posiblemente en punto específicos de la función en los cuales se demuestran en la gráfica de la función. Se tomaron en cuenta datos para la base de 1 a 20.
+
+---
+
+Siguiente caso, el balance de error debe ser menor a 0.001
+
+```python
+#Importamos math y de math traemos la función coseno y al factorial
+from math import cos, factorial
+#Creamos una función que nos ayude a llegar a la aproximación de la función coseno
+def aproxFuncCos (x:float, n:int) -> float:
+    funcCos: float = 0
+    for i in range(0, n+1):
+        funcCos += ((-1)**i)*(x**((2*i))/factorial(2*i)) #Esta es la ecuación de la función coseno para hallarla
+    return funcCos
+
+if __name__=="__main__":
+    #Le pedimos al usuario que ingrese un valor para la base
+    x = float(input("Ingrese un valor para la base 'x': "))
+    # El exponente tiene valor de 1, porque conforme a la base irá cambiando el exponente
+    n : int = 1
+    aprox = aproxFuncCos(x, n) #Llamamos a la aproximación de la función coseno
+    real = cos(x) #Llamamos a la función coseno real después de importar la librería math
+
+    #Para que el exponente sea el correcto creamos un while con la siguiente operación, así miramos la aproximación
+    while abs((real - aprox)/real*100)>0.001:
+        aprox: float = aproxFuncCos(x, n)
+        #Actualizamos cada vez el exponente conforme al resultado que obtenemos para llegar más fácil a la aproximación
+        n += 1
+        # El while se termina cuando el valor que obtenemos es menor al error posible que establecemos en este caso es 0.001, pero se irá disminuyendo para comprobar el comportamiento de los exponentes
+    print(n, " es el valor del exponente para que funcione la aproximación")
+    
+    #Restamos el valor real con el exponente
+    difAprox = real - aprox
+
+    #Imprimimos
+    print("La aproximación de la función seno es", aprox)
+    print("La función seno real es", real)
+    print("La diferencia de la función real y la aproximación es", difAprox)
+```
+
+Como se ve en los anteriores casos cada vez la suma de los exponentes crece más porque el margen de error es mucho menor, por lo que la cifra tiene que ser mucho más exacta. Se tomaron los valores para la base desde 1 hasta 20.
+
 ## Quinto punto
 **Instrucción**
 
