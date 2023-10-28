@@ -107,12 +107,12 @@ Desarrollar un programa que dadas dos listas determine que elementos tiene la pr
 
 1. Crear función
 
-Para solucionar este punto se crea una función que tiene como argumentos dos listas diferentes. En este caso la función se nombró diferenciaLista.
-La función compara cada uno de los elementos de la primera lista con los elementos de la segunda lista y cuando son iguales, se elimina ese elemento de la primera lista. Después de que se ejectuta la anterior instrucción, la función retorna la primera lista (ahora que en la primera lista, ya no están los elementos que también tiene la segunda lista).
+Para solucionar este punto se crea una función que tiene como argumentos dos listas diferentes. En este caso la función se nombró _diferenciaLista_.
+La función compara cada uno de los elementos de la primera lista con los elementos de la segunda lista y cuando son iguales, se elimina ese elemento de la primera lista. Después de que se ejecuta la anterior instrucción, la función retorna la primera lista (ahora que en la primera lista, ya no están los elementos que también tiene la segunda lista).
 
 2. Usar la función
 
-Se define la función main, se declaran las dos listas con los elementos que se deseen, se llama la función creada anteriormente (llamada diferenciaLista) y se imprime el resultado. Es decir que el programa va a imprimir la lista con los elementos que únicamente tiene la primera lista.
+Se define la _función main_, se declaran las dos listas con los elementos que se deseen, se llama la función creada anteriormente (llamada _diferenciaLista_) y se imprime el resultado. Es decir que el programa va a imprimir la lista con los elementos que únicamente tiene la primera lista.
 
 
 **Código**
