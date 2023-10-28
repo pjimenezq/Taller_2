@@ -138,7 +138,7 @@ if __name__=="__main__":#Función principal
 
 Resolver el punto 7 del taller 1 usando operaciones con vectores.
 
-*Punto 7 del taller 1:* 
+**Punto 7 del taller 1:** 
 
 Escriba un programa que pida 5 números reales y calcule las siguientes operaciones:
 
