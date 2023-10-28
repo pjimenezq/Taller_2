@@ -268,4 +268,31 @@ Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una fu
 
 **Código**
 ```
+# Perspectiva de un patrón de acumulación
+
+def multiplosTres(lista):#Declarando función multiplosTres
+    listaNueva=[]#Creando lista vacia
+    for num in lista:#para cada elemento de la lista
+        if num%3==0:#si el residuo del elemento dividido entre 3 es igual a 0, el elemento es múltiplo de 3
+            listaNueva.append(num)#Se agrega ese elemento a la lista que estaba vacia
+    return(listaNueva)#Se retorna la lista con los múltiplos de tres
+
+if __name__=="__main__":#Función principal
+    listaA=[33,45,61,22,5,21,18]#Se declara la lista A y sus elementos
+    multiplosDeTres=multiplosTres(listaA)#Se llama la función multiplosTres
+    print("Los números que son múltiplos de tres son: "+ str(multiplosDeTres))#Se imprimen los elementos que son múltiplos de tres de la lista A
+
+
+
+# Comprensión de listas
+
+def multiplosTresComprension(lista):#Declarando función MultiplosTresComprension
+    listaFinal=[num for num in lista if num%3==0]#Los elementos de la lista final son aquellos elementos de la lista que si se dividen entre tres el residuo es igual a cero
+    return(listaFinal)#Se retorna la lista final con los múltiplos de tres
+
+
+if __name__=="__main__":#Función principal
+    listaA=[7,23,35,33,67,99,15]#Se declara la lista A y sus elementos
+    multiplosDeTresComprension=multiplosTresComprension(listaA)#Se llama la función multiplosTresComprension
+    print("Los números que son múltiplos de tres son: "+ str(multiplosDeTresComprension))#Se imprimen los elementos que son múltiplos de tres de la lista A
 ```
