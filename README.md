@@ -427,6 +427,25 @@ Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una fu
 
 **Explicación de la solución**
 
+Desde la perspectiva de un patrón de acumulación:
+
+1.	Crear función
+
+Para solucionar este punto se crea una función que tiene como argumento una lista. En este caso la función se nombró multiplosTres. En la función se crea una lista vacía (llamada listaNueva). Luego, para cada número de la lista que se ingresa en la función principal, se evalúa si este número se puede dividir entre tres sin dejar residuo (utilizando el módulo). En caso de que se cumpla con esta condición, el número es agregado a la lista nueva. La función retorna la listaNueva, que contiene solamente los múltiplos de tres.
+
+2.	Usar la función
+
+Se define la función main, se declara la lista A con los elementos que se deseen, se llama la función creada anteriormente (llamada multiplosTres) y se imprime el resultado. Es decir que el programa va a imprimir la lista con los elementos que sean múltiplos de tres.
+
+Desde la perspectiva de comprensión de listas:
+1.	Crear función
+
+Para solucionar este punto se crea una función que tiene como argumento una lista. En este caso la función se nombró multiplosTresComprension. En la función se crea una lista la cual se compone por los elementos de la lista que se ingresa en la función principal que se puedan dividir entre tres sin dejar residuo. La función retorna la lista que contiene solamente los múltiplos de tres.
+
+2.	Usar la función
+
+Se define la función main, se declara la lista A con los elementos que se deseen, se llama la función creada anteriormente (llamada multiplosTresComprension) y se imprime el resultado. Es decir que el programa va a imprimir la lista con los elementos que sean múltiplos de tres.
+
 
 
 **Código**
