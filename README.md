@@ -58,17 +58,78 @@ if __name__ == "__main__":
     #Imprimimos
     print("Los digitos del número deseado por el usuario son los sigueintes", digitos)
 ```
+
 ## Segundo punto
 **Instrucción**
 
 Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
 
 **Explicación de la solución**
-
-
+* Lo primero crearemos dos funciones, una para los decimales y otra para los enteros. Cada una con funciones recursivas. Las funciones bases serán para las listas iguales a 0
+* Las funciones recursivas de los enteros será el mismo caso que se hizo en el punto 1
+* Para la lista de los decimales entonces volvemos entero a la parte decimal, actualizamos a la parte decimal hasta que sea mayor a 1 y cuando pasa eso creamos un ciclo en el cual esa decimal sea diferente a la parte decimal que volvimos entera. Vamos añadiendo a lista.
+* En función main, creamos variable n, listas, y suma de listas
 
 **Código**
-```
+```python
+#Creamos Funciones, donde serán en función de 'n'
+def digitosEnteros(n: float) -> float:
+    #Sacamos la parte entera de 'n'
+    ent = int(n)
+
+    #Hacemos función base, que es si la parte entera es igual a 0
+    if ent == 0:
+        enterosLista.append(ent)
+        return enterosLista
+    #La función recursiva es sacando cada uno de los dígitos de la parte entera
+    else:
+        #Esta misma parte se ve en el punto 1 de este mismo taller.
+        while ent > 0:
+            digitos = ent % 10 
+            enterosLista.append(digitos) 
+            ent = ent // 10
+        enterosListaOrdenado = enterosLista[::-1]
+        return enterosListaOrdenado
+    
+def digitosDecimales(n: float) -> float:
+    #Esta segunda función es para la parte decimal
+    #Sacamos la parte entera de 'n' y lo restamos con 'n'. De tal manera sacaremos la parte decimal
+    ent = int(n)
+    dec = n - ent
+
+    #Esta va a ser la función recursiva, si la parte decimal es 0, entonces retornará a esa lista de los decimales 0
+    if dec == 0:
+        decimalesLista.append(dec)
+        return decimalesLista
+    
+    else:
+        # Llevamos la parte decimal a que sea 1 o mayor a 1
+        while dec < 1:
+            dec *= 10
+
+        #Mientras que la parte decimal sea diferente del entero de la parte decimal, se repetirá el ciclo while, en el cual se irán añadiendo los valores de los decimales a la lista de los decimales.
+        while dec != int(dec):
+            digitosDec = int(dec) % 10
+            decimalesLista.append(digitosDec)
+            dec = dec * 10  
+        return decimalesLista
+
+
+if __name__ == "__main__":
+    #Pedimos que el usuario ingrese un número flotante
+    n = float(input("Ingrese un número flotante: "))
+    #Creamos listas para los enteros y para los decimales
+    enterosLista = []
+    decimalesLista = []
+    #Llamamos a las funciones creadas
+    enteros = digitosEnteros(n)
+    decimales = digitosDecimales(n)
+    #Sumamos las listas para que al imprimirse también se imprima los dígitos de todo el número
+    digitos = enteros + decimales
+    #Imprimimos las listas de los decimales, la de los enteros y la de todo el número
+    print("Los dígitos enteros son", enteros)
+    print("Los dígitos decimales son", decimales)
+    print("Todos los dígitos del número son", digitos)
 ```
 ## Tercer punto
 **Instrucción**
