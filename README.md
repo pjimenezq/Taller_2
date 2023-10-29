@@ -131,17 +131,52 @@ if __name__ == "__main__":
     print("Los dígitos decimales son", decimales)
     print("Todos los dígitos del número son", digitos)
 ```
+
 ## Tercer punto
 **Instrucción**
 
 Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos como dos números a y b tales que a se lee de izquierda a derecha igual que se lee b de derecha a izquierda, y viceversa.
 
 **Explicación de la solución**
-
-
+* Creamos dos funciones una donde se evaluaría si son números espejos, vamos a separar los dígitos de n y m como se hizo en el primer punto. Con excepción que en 'm' se invertirá el orden para que se pueda evaluar si son iguales.
+* Vamos a la función main, donde pedimos que ingrese un valor para n y un valor para m. Están las dos listas creadas, se llamaron las funciones y se evalúa si son números espejos o no. 
 
 **Código**
-```
+```python
+#Creamos dos funciones, cada una para cada número que se evaluará si son espejos.
+def nNumero(n):
+    #La idea es poner los dígitos del número n en una lista oara ese número. Haciendo el mismo procedimiento en el punto 1
+    while n > 0:
+        nDigitos = n % 10
+        nLista.append(nDigitos)
+        n = n // 10
+    return nLista
+
+def mNumero(m):
+    #Mismo caso para los dígitos del número m, pero cambiando el orden de los números de la lista con el slicing, para que en el momento que se vaya a evaluar, se pueda ver si son número espejos o no
+    while m > 0:
+        mDigitos = m % 10
+        mLista.append(mDigitos)
+        m = m // 10
+    mListaOrd = mLista[::-1]
+    return mListaOrd
+
+if __name__ == "__main__":
+    #En la función main le pedimos al usuario que ingrese un número entero para n y para m.
+    n = int(input("Ingrese un número entero para n: "))
+    m = int(input("Ingrese otro número entero para m: "))
+    # Creamos las listas, para los dígitos de m y para los dígitos de n
+    nLista = []
+    mLista = []
+    #Llamamos las funciones creadas
+    nNum = nNumero(n)
+    mNum = mNumero(m)
+    #En este punto se evaluará si n y m son números espejos o no.
+    #Si son listas iguales son números espejos, sino no. Ponemos el slicing para que se evalúen el orden de las listas.
+    if nNum[:] == mNum[:]:
+        print("los número son números espejos")
+    else:
+        print("Los números no son números espejos")
 ```
 ## Cuarto punto
 **Instrucción**
