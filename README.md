@@ -20,11 +20,43 @@ Agrocode industry
 Desarrollar un programa que ingrese un número entero n y separe todos los digitos que componen el número.
 
 **Explicación de la solución**
-
-
+* Primero lo que se hizo fue una función para los dígitos separados en función del número 'n' que se ingresó. Haremos un caso de función recursiva, si la respuesta es 0 entonces el dígito es 0, aunque no habría problema si no aparece nada en la lista. En la función recursiva se creará un ciclo while que funcionará siempre que 'n' sea mayor a 0.
+* Este ciclo crea una nueva variable que va a ser 'd', para hallar 'd' nosotros hacemos 'n' módulo 10. Este resultado nos dará el último dígito del número ingresado. Despues de tener este digito lo ingresamos a una lista creada en la función main. Para actualizar 'n' y que no se tenga en cuenta el último digito que ya se separó entonces hacemos 'n' división entera 10; esto hará que no se tenga en cuenta el último digito que ya separamos. Si el resultado de esta división es mayor que 0 se repite el ciclo.
+* En la función main cremos la variable 'n', que será un entero ingresado por el usuario, creamos la lista en la que ingresamos los dígitos. Llamamos a la función de digitosSeparados e imprimimos el resultado
 
 **Código**
-```
+```python
+# Primero creamos una función que nos dará los digitos separados del número 'n' ingresado por el usuario. Es decir, digitosSeparados en función de n
+def digitosSeparados(n: int) -> int: #Aplicaremos la función recursiva
+    #La función base es si n es igual a 0, el dígito será 0, aunque si no aparecía nada en la lista no habría problema ya que 0 no representa un valor
+    if n == 0:
+        digitosListaRev.append(n)
+        return digitosListaRev
+    # La función recursiva es la siguiente:
+    else:
+        #Para esto creamos un ciclo, el cual funcionará siempre que 'n' sea mayor que 0
+        while n > 0:
+            #Vamoa a separar los digitos de la siguiente manera: Creamos la variable 'd' que será el dígito que en ese momento se esté trabajando. El resultado de 'd' será 'n' módulo 10.
+            #El residuo de la división anterior será el digito que se trabaje.
+            d = n % 10
+            #Ese resultado lo añadimos a la lista creado en la función main
+            digitosListaRev.append(d)
+            #Tenemos que actualizar 'n' en diviendo el valor de 'n' en 10, esto hará que el dígito que ya se ingresó a la lista no se tome en cuenta en el siguiente ciclo
+            n = n // 10
+        # Creamos una nueva variable que será la lista creada aplicando slicing para que la lista quede ordenada.
+        digitosLista = digitosListaRev[::-1]
+        # Se nos retorna la variable de la lista ordenada
+        return digitosLista
+
+if __name__ == "__main__":
+    #En la función main creamos la variable 'n' que será un entero ingresado por el usuario
+    n : int = int(input("Ingrese el número entero que usted desee: "))
+    #Esta es la lista en la cual ingresamos los digitos.
+    digitosListaRev = []
+    #Creamos la variable digitos donde llamamos a la función que hicimos al inicio
+    digitos = digitosSeparados(n)
+    #Imprimimos
+    print("Los digitos del número deseado por el usuario son los sigueintes", digitos)
 ```
 ## Segundo punto
 **Instrucción**
